@@ -1,10 +1,11 @@
 {
   "name": "rome-by-fly-artwork",
   "version": "1.0.0",
-  "description": "An art gallery portfolio for @fly__artwork on InstaGram.",
+  "description": "An artistic gallery portfolio for @fly__artwork on InstaGram.",
   "main": "index.js",
   "scripts": {
-    "build-css": "npx tailwindcss -i ./src/css/input.css -o ./src/css/output.css --watch"
+    "dev": "npx tailwindcss -i ./src/input.css -o ./src/css/styles.css --watch",
+    "prod": "npx tailwindcss -i ./src/input.css -o ./src/css/styles.css --minify"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,10 @@
     "url": "https://github.com/mjmorrison10/rome-fly__artwork/issues"
   },
   "homepage": "https://github.com/mjmorrison10/rome-fly__artwork#readme",
-  "dependencies": {
+  "devDependencies": {
     "tailwindcss": "^3.0.12"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.0"
   }
 }
