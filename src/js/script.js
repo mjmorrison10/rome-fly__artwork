@@ -85,66 +85,27 @@ function displayWork() {
 
 displayWork();
 
-
 // Display Modal
 display.addEventListener("click", function (e) {
+  modalContainer.classList.add("hidden");
+
   const clickTarget = e.target.querySelector(".artImg");
-  //   const scrollHeight = e.target.scrollHeight;
   if (clickTarget) return;
-//   modalContainer.classList.add(`top-[${window.scrollY}px]`);
-    modalContainer.style.top = `${window.scrollY}px` 
+  modalContainer.style.top = `${window.scrollY}px`;
 
-
-  console.log(e.target);
   const dataID = e.target.dataset.id;
-  console.log(dataID);
-  
+
   modalContainer.classList.toggle("hidden");
-  
+
   const x = e.offsetX;
   const y = e.offsetY;
-  
-  console.log(x, y);
-  
-  console.log("FDSAFDSAFDS", window.scrollY);
-  console.log("FDSAFDSAFDS", document.body.scrollHeight);
 
   const modalImg = modalContainer.querySelector(".modalImg");
   modalImg.src = `${artArr[dataID]}`;
-  // console.log(artArr[dataID]);
-
-//   modalContainer.classList.remove(`top-0`)
-//   modalContainer.classList.add(`top-[${window.scrollY}px]`);
 });
 
 modalUnion.forEach((el) => {
   el.addEventListener("click", function () {
-    console.log("test");
     modalContainer.classList.add("hidden");
   });
 });
-
-// const artworkImgs = document.querySelectorAll(".artImg");
-
-// const options = {
-//   threshold: 0, // 0-1 scale
-//   rootMargin: "0px",
-// };
-
-// const observer = new IntersectionObserver(function (entries, observer) {
-//   entries.forEach((entry) => {
-//     if (!entry.isIntersecting) return;
-//     // console.log(entry);
-//     // console.log(entry);
-//     const yAxis = entry.boundingClientRect.y
-//     const xAxis = entry.boundingClientRect.x
-
-
-//     console.log("x=", xAxis, "y=", yAxis);
-//     // entry.target.classList.remove("hidden");
-//   });
-// }, options);
-
-// artworkImgs.forEach((img) => {
-//   observer.observe(img);
-// });
