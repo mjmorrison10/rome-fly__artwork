@@ -510,6 +510,42 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: relative;
 }
 
+.top-\[80rem\] {
+  top: 80rem;
+}
+
+.top-12 {
+  top: 3rem;
+}
+
+.top-\[800px\] {
+  top: 800px;
+}
+
+.top-2 {
+  top: 0.5rem;
+}
+
+.top-0 {
+  top: 0px;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
+.right-0 {
+  right: 0px;
+}
+
+.left-0 {
+  left: 0px;
+}
+
+.top-\[1800px\] {
+  top: 1800px;
+}
+
 .z-20 {
   z-index: 20;
 }
@@ -571,6 +607,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-height: 100%;
 }
 
+.min-h-screen {
+  min-height: 100vh;
+}
+
 .w-full {
   width: 100%;
 }
@@ -617,6 +657,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .overflow-x-hidden {

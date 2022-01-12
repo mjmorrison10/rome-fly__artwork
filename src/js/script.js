@@ -68,7 +68,7 @@ function displayWork() {
     const html = `
     <div>
         <div
-            class="artImg z-10 relative before:content-[''] before:h-full before:w-full before:hover:bg-red-800 before:opacity-20 before:absolute before:top-0 cursor-pointer"
+            class=" artImg z-10 relative before:content-[''] before:h-full before:w-full before:hover:bg-red-800 before:opacity-20 before:absolute before:top-0 cursor-pointer"
             data-id="${i}" >
         <img
             class="object-contain max-h-full max-w-full rounded"
@@ -85,28 +85,36 @@ function displayWork() {
 
 displayWork();
 
-// const options = {
-//     root: document.querySelector('.display-work'),
-//     rootMargin: '0px',
-//     threshold: 1.0
-// }
 
-// const observer = new IntersectionObserver()
-
+// Display Modal
 display.addEventListener("click", function (e) {
   const clickTarget = e.target.querySelector(".artImg");
   //   const scrollHeight = e.target.scrollHeight;
   if (clickTarget) return;
+//   modalContainer.classList.add(`top-[${window.scrollY}px]`);
+    modalContainer.style.top = `${window.scrollY}px` 
+
 
   console.log(e.target);
   const dataID = e.target.dataset.id;
   console.log(dataID);
-
+  
   modalContainer.classList.toggle("hidden");
+  
+  const x = e.offsetX;
+  const y = e.offsetY;
+  
+  console.log(x, y);
+  
+  console.log("FDSAFDSAFDS", window.scrollY);
+  console.log("FDSAFDSAFDS", document.body.scrollHeight);
 
-  const modalImg = modalContainer.querySelector('.modalImg')
-  modalImg.src = `${artArr[dataID]}`
-// console.log(artArr[dataID]);
+  const modalImg = modalContainer.querySelector(".modalImg");
+  modalImg.src = `${artArr[dataID]}`;
+  // console.log(artArr[dataID]);
+
+//   modalContainer.classList.remove(`top-0`)
+//   modalContainer.classList.add(`top-[${window.scrollY}px]`);
 });
 
 modalUnion.forEach((el) => {
@@ -116,4 +124,27 @@ modalUnion.forEach((el) => {
   });
 });
 
-// Get entire page height
+// const artworkImgs = document.querySelectorAll(".artImg");
+
+// const options = {
+//   threshold: 0, // 0-1 scale
+//   rootMargin: "0px",
+// };
+
+// const observer = new IntersectionObserver(function (entries, observer) {
+//   entries.forEach((entry) => {
+//     if (!entry.isIntersecting) return;
+//     // console.log(entry);
+//     // console.log(entry);
+//     const yAxis = entry.boundingClientRect.y
+//     const xAxis = entry.boundingClientRect.x
+
+
+//     console.log("x=", xAxis, "y=", yAxis);
+//     // entry.target.classList.remove("hidden");
+//   });
+// }, options);
+
+// artworkImgs.forEach((img) => {
+//   observer.observe(img);
+// });
