@@ -1,4 +1,7 @@
 const display = document.querySelector(".display-work");
+const modal = document.querySelector(".modal");
+const modalContainer = document.querySelector(".modal-container");
+const modalUnion = [modal, modalContainer];
 
 // const artObj = {
 //   angeliqueKitchen: "./img/angelique-kitchen.jpg",
@@ -61,14 +64,14 @@ const artArr = [
 ];
 
 function displayWork() {
-  artArr.forEach((item) => {
+  artArr.forEach((item, i) => {
     const html = `
     <div>
         <div
-            class="relative before:content-[''] before:h-full before:w-full before:hover:bg-red-800 before:opacity-20 before:absolute before:top-0 cursor-pointer"
-        >
+            class="artImg z-10 relative before:content-[''] before:h-full before:w-full before:hover:bg-red-800 before:opacity-20 before:absolute before:top-0 cursor-pointer"
+            data-id="${i}" >
         <img
-            class="object-contain rounded"
+            class="object-contain max-h-full max-w-full rounded"
             src="${item}"
             alt="Angelique Kitchen Logo"
         />
@@ -81,3 +84,36 @@ function displayWork() {
 }
 
 displayWork();
+
+// const options = {
+//     root: document.querySelector('.display-work'),
+//     rootMargin: '0px',
+//     threshold: 1.0
+// }
+
+// const observer = new IntersectionObserver()
+
+display.addEventListener("click", function (e) {
+  const clickTarget = e.target.querySelector(".artImg");
+  //   const scrollHeight = e.target.scrollHeight;
+  if (clickTarget) return;
+
+  console.log(e.target);
+  const dataID = e.target.dataset.id;
+  console.log(dataID);
+
+  modalContainer.classList.toggle("hidden");
+
+  const modalImg = modalContainer.querySelector('.modalImg')
+  modalImg.src = `${artArr[dataID]}`
+// console.log(artArr[dataID]);
+});
+
+modalUnion.forEach((el) => {
+  el.addEventListener("click", function () {
+    console.log("test");
+    modalContainer.classList.add("hidden");
+  });
+});
+
+// Get entire page height
