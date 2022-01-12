@@ -79,6 +79,8 @@ function displayWork() {
      </div>
     `;
 
+    if (i > 7) return
+
     display.insertAdjacentHTML("beforeend", html);
   });
 }
@@ -91,6 +93,8 @@ display.addEventListener("click", function (e) {
 
   const clickTarget = e.target.querySelector(".artImg");
   if (clickTarget) return;
+  //   document.body.classList.add(".stop-scrolling");
+
   modalContainer.style.top = `${window.scrollY}px`;
 
   const dataID = e.target.dataset.id;

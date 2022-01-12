@@ -6,13 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rome - @fly__artwork</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/customStyles.css" />
     <script defer src="./js/script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/0252bd3897.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body class="bg-gray-400 flex items-center flex-col overflow-x-hidden">
     <header
-      class="bg-red-800 container h-auto flex justify-between items-center"
+      class="bg-red-800 container h-auto flex justify-between items-center p-2"
     >
-      <img src="./img/logo.png" alt="Rome @fly__artwork studios" class="logo" />
+      <div class="h-24">
+        <img
+          class="object-contain max-h-full max-w-full"
+          src="./img/logo.png"
+          alt="Rome @fly__artwork studios"
+          class="logo"
+        />
+      </div>
       <nav>
         <ol class="flex text-lg font-bold text-red-100">
           <li class="mr-12 hover:text-red-200 cursor-pointer hover:underline">
@@ -66,11 +78,11 @@
       </section>
 
       <div
-        class="modal-container hidden bottom-0 right-0 left-0 absolute z-20 bg-red-800/25 h-screen w-screen flex justify-center cursor-pointer"
+        class="modal-container hidden bottom-0 right-0 left-0 absolute z-20 bg-red-900/50 h-screen w-screen flex justify-center cursor-pointer"
       >
         <div class="modal p-6 h-screen cursor-pointer absolute">
           <img
-            class="modalImg object-contain max-h-full max-w-full"
+            class="modalImg object-contain max-h-full rounded max-w-full shadow-lg"
             src="./img/black-grits-comedy2.png"
           />
         </div>
@@ -103,8 +115,38 @@
       </section>
     </main>
 
-    <footer class="h-auto">
-      <div class="copyright">
+    <footer class="h-auto bg-red-800 container flex-col mt-6 rounded-t p-2">
+      <div class="footer flex justify-between">
+        <div class="h-24">
+          <img
+            class="object-contain max-h-full max-w-full"
+            src="./img/logo.png"
+            alt="Rome @fly__artwork studios"
+            class="logo"
+          />
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 items-center text-red-100">
+          <a
+            class="justify-self-end"
+            href="https://www.instagram.com/fly__artwork/"
+            ><i class="fab fa-instagram hover:text-red-200"></i
+          ></a>
+          <a href="https://www.instagram.com/fly__artwork/">
+            <p class="hover:text-red-200">@fly__artwork</p>
+          </a>
+          <i class="fas fa-phone justify-self-end hover:text-red-200"></i>
+          <p class="hover:text-red-200">(415) 578-0379</p>
+          <a class="justify-self-end" href="mailto:artworkfocusisme@gmail.com"
+            ><i class="far fa-envelope hover:text-red-200"></i
+          ></a>
+          <a href="mailto:artworkfocusisme@gmail.com">
+            <p class="hover:text-red-200">artworkfocusisme@gmail.com</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="copyright text-center pt-8 text-red-100">
         Website developed by MorrisonDevOps Copyright &copy;
         <script type="text/javascript">
           document.write("2022 - " + new Date().getFullYear());
