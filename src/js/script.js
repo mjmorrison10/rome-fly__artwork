@@ -8,36 +8,6 @@ const curPage = document.querySelector(".currentPage");
 const pagination = document.querySelector(".pagination");
 const modalImg = modalContainer.querySelector(".modalImg");
 
-// const artObj = {
-//   angeliqueKitchen: "./img/angelique-kitchen.jpg",
-//   blackGritsComedy: "./img/black-grits-comedy.png",
-//   blackGritsComedy2: "./img/black-grits-comedy2.png",
-//   blockJuice: "./img/block-juice.png",
-//   dj: "dj.jpg",
-//   dynamicCuts: "dynamic-cuts.png",
-//   family: "family.png",
-//   jessicaRoberts: "jessica-roberts.png",
-//   kobaAssociates: "koba-associates.jpg",
-//   family: "family.png",
-//   lifeUpSideDown: "life-up-side-down.jpg",
-//   littleBoy: "little-boy.png",
-//   manAndWoman: "man-and-woman.png",
-//   mitchThaBarber: "mitch-tha-barber.png",
-//   mrFlip: "mr-flip.png",
-//   poodieMan: "poodie-man.png",
-//   royalRedCatering: "royal-red-catering.jpg",
-//   schoolOfPhlebotomy: "school-of-phlebotomy.png",
-//   selfMade: "self-made.jpg",
-//   soloMan: "solo-man.jpg",
-//   sosMassage: "sos-massage.jpg",
-//   spartan1: "spartan-1.png",
-//   spartan2: "spartan-2.png",
-//   spartan3: "spartan-3.png",
-//   spartan4: "spartan-4.png",
-//   suchAGenius: "such-a-genius.png",
-//   twoWomen: "two-women.png",
-// };
-
 const artArr = [
   "./img/angelique-kitchen.jpg",
   "./img/black-grits-comedy.png",
@@ -71,19 +41,6 @@ const bodyWidth = document.body.clientWidth;
 let pageCur = 1;
 let imgsPerPage;
 
-// function setImgsPerPage() {
-//   if (bodyWidth < 767) {
-//     console.log("sm", bodyWidth);
-//     imgsPerPage = 2;
-//   }
-//   if (bodyWidth > 768 && bodyWidth < 1023) {
-//     console.log("md", bodyWidth);
-//     imgsPerPage = 4;
-//   } else if (bodyWidth > 1024) {
-//     console.log("lg", bodyWidth);
-//   }
-// }
-
 function setImgsPerPage() {
   if (bodyWidth <= 610) {
     console.log("sm", bodyWidth);
@@ -99,10 +56,6 @@ function setImgsPerPage() {
 }
 
 setImgsPerPage();
-
-// function imgsPerPage2() {
-
-// }
 
 function prevPage() {
   if (pageCur > 1) {
@@ -167,7 +120,7 @@ function generateHTML(page) {
       return `
         <div>
             <div
-                class="artImg border-2 border-red-100/10 hover:border-red-100/75 rounded hover:animate-pulse z-10 relative before:content-[''] before:h-full before:w-full before:hover:bg-red-800 before:opacity-20 before:absolute before:top-0 cursor-pointer"
+                class="IOsection artImg duration-1000 transition-all border-2 border-red-100/10 hover:border-red-100/75 rounded hover:animate-pulse z-10 relative before:content-[''] before:h-full before:w-full before:hover:bg-red-800 before:opacity-20 before:absolute before:top-0 cursor-pointer"
                 data-id="${i}" >
             <img
                 class=" object-contain max-h-full max-w-full rounded"
@@ -217,4 +170,30 @@ modalUnion.forEach((el) => {
     }, 600);
     modalImg.style.opacity = 0;
   });
+});
+
+const options = {
+  rootMartin: "0px",
+  threshold: 0.25,
+};
+
+const allSections = document.querySelectorAll(".IOsection");
+
+const observer = new IntersectionObserver(function (entries, observer) {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) {
+      entry.target.style.opacity = 0;
+      console.log('hide');
+      return;
+    }
+    entry.target.style.opacity = 100;
+    console.log(entry.target);
+  });
+}, options);
+
+allSections.forEach((section) => {
+  section.classList.add('duration-1000')
+  section.classList.add('transition-all')
+  section.style.opacity = 0;
+  observer.observe(section);
 });
