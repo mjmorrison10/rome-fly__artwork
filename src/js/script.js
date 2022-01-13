@@ -1,7 +1,13 @@
+"use strict";
+
 const display = document.querySelector(".display-work");
 const modal = document.querySelector(".modal");
 const modalContainer = document.querySelector(".modal-container");
 const modalUnion = [modal, modalContainer];
+// const btnLeft = document.querySelector(".buttonLeft");
+const curPage = document.querySelector(".currentPage");
+// const btnRight = document.querySelector(".buttonRight");
+const pagination = document.querySelector(".pagination");
 
 // const artObj = {
 //   angeliqueKitchen: "./img/angelique-kitchen.jpg",
@@ -43,7 +49,6 @@ const artArr = [
   "./img/family.png",
   "./img/jessica-roberts.png",
   "./img/koba-associates.jpg",
-  "./img/family.png",
   "./img/life-up-side-down.jpg",
   "./img/little-boy.png",
   "./img/man-and-woman.png",
@@ -63,27 +68,123 @@ const artArr = [
   "./img/two-women.png",
 ];
 
-function displayWork() {
-  artArr.forEach((item, i) => {
-    const html = `
-    <div>
-        <div
-            class=" artImg z-10 relative before:content-[''] before:h-full before:w-full before:hover:bg-red-800 before:opacity-20 before:absolute before:top-0 cursor-pointer"
-            data-id="${i}" >
-        <img
-            class="object-contain max-h-full max-w-full rounded"
-            src="${item}"
-            alt="Angelique Kitchen Logo"
-        />
-        </div>
-     </div>
-    `;
+let pageCur = 1;
+let imgsPerPage = 8;
 
-    if (i > 7) return
-
-    display.insertAdjacentHTML("beforeend", html);
-  });
+function prevPage() {
+  if (pageCur > 1) {
+    pageCur--;
+    displayWork(pageCur);
+  }
 }
+
+function nextPage() {
+  if (pageCur < numPages()) {
+    pageCur++;
+    displayWork(pageCur);
+  }
+}
+
+pagination.addEventListener("click", function (e) {
+  const btnLeft = e.target.closest(".buttonLeft");
+  const btnRight = e.target.closest(".buttonRight");
+
+  if (!btnLeft && !btnRight) return;
+
+  if (btnLeft) {
+    prevPage();
+    curPage.innerText = `Page ${pageCur}`;
+  } else if (btnRight) {
+    nextPage();
+    curPage.innerText = `Page ${pageCur}`;
+  }
+});
+
+function numPages() {
+  return Math.ceil(artArr.length / imgsPerPage);
+}
+
+function displayWork(page = 1) {
+  if (page < 1) page = 1;
+  if (page > numPages()) page = numPages();
+
+  generateHTML(pageCur);
+}
+
+function generateHTML(page) {
+  display.innerHTML = "";
+  console.log('page', page);
+
+  function firstPage() {
+   return  page == 1 ? page - 1 : (page - 1) * imgsPerPage
+  }
+
+  function secondPage() {
+   return imgsPerPage * page
+  }
+
+  const artMarkup = artArr
+    .map((item, i) => {
+      return `
+        <div>
+            <div
+                class=" artImg z-10 relative before:content-[''] before:h-full before:w-full before:hover:bg-red-800 before:opacity-20 before:absolute before:top-0 cursor-pointer"
+                data-id="${i}" >
+            <img
+                class="object-contain max-h-full max-w-full rounded"
+                src="${item}"
+                alt="Angelique Kitchen Logo"
+            />
+            </div>
+         </div>
+        `;
+    })
+    .slice(firstPage(), secondPage())
+    .join("");
+
+    console.log(firstPage(), secondPage());
+
+//   console.log('first page', (page === 1 ? page - 1 : page * imgsPerPage));
+// console.log('second page', imgsPerPage * page);
+
+// console.log(page === 1 ? page : page * imgsPerPage / 2);
+
+//   console.log(
+//     "first page",
+//     (pageCur - 1) * pageCur,
+//     "second page",
+//     imgsPerPage * pageCur
+//   );
+
+  display.insertAdjacentHTML("beforeend", artMarkup);
+}
+
+// function generateHTML(page) {
+//   const curPageImgs = pageCur;
+//   console.log(curPageImgs);
+
+//   let html = "";
+
+//   artArr.forEach((item, i) => {
+//     // if (i > imgsPerPage - 1) return;
+
+//     html += `
+//         <div>
+//             <div
+//                 class=" artImg z-10 relative before:content-[''] before:h-full before:w-full before:hover:bg-red-800 before:opacity-20 before:absolute before:top-0 cursor-pointer"
+//                 data-id="${i}" >
+//             <img
+//                 class="object-contain max-h-full max-w-full rounded"
+//                 src="${item}"
+//                 alt="Angelique Kitchen Logo"
+//             />
+//             </div>
+//          </div>
+//         `;
+//   });
+
+//   display.insertAdjacentHTML("beforeend", html);
+// }
 
 displayWork();
 
@@ -113,3 +214,60 @@ modalUnion.forEach((el) => {
     modalContainer.classList.add("hidden");
   });
 });
+
+/*
+
+function displayWork(page) {
+  artArr.forEach((item, i) => {
+    const html = `
+    <div>
+        <div
+            class=" artImg z-10 relative before:content-[''] before:h-full before:w-full before:hover:bg-red-800 before:opacity-20 before:absolute before:top-0 cursor-pointer"
+            data-id="${i}" >
+        <img
+            class="object-contain max-h-full max-w-full rounded"
+            src="${item}"
+            alt="Angelique Kitchen Logo"
+        />
+        </div>
+     </div>
+    `;
+
+    if (i > (page * 7)) return
+
+    display.insertAdjacentHTML("beforeend", html);
+  });
+}
+
+
+
+displayWork(2);
+
+// Display Modal
+display.addEventListener("click", function (e) {
+  modalContainer.classList.add("hidden");
+
+  const clickTarget = e.target.querySelector(".artImg");
+  if (clickTarget) return;
+  //   document.body.classList.add(".stop-scrolling");
+
+  modalContainer.style.top = `${window.scrollY}px`;
+
+  const dataID = e.target.dataset.id;
+
+  modalContainer.classList.toggle("hidden");
+
+  const x = e.offsetX;
+  const y = e.offsetY;
+
+  const modalImg = modalContainer.querySelector(".modalImg");
+  modalImg.src = `${artArr[dataID]}`;
+});
+
+modalUnion.forEach((el) => {
+  el.addEventListener("click", function () {
+    modalContainer.classList.add("hidden");
+  });
+});
+
+*/

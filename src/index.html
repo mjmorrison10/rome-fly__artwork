@@ -99,6 +99,11 @@
         </div> -->
 
         <h1 class="font-bold text-5xl my-6">Display of My Work</h1>
+        <div class="pagination flex items-center my-2">
+            <button class="buttonLeft bg-red-100 font-bold rounded-full h-8 w-8 flex items-center mr-2 justify-center"><i class="fas fa-chevron-left"></i></button>
+           <p class="currentPage">Page 1</p>
+            <button class="buttonRight bg-red-100 font-bold rounded-full h-8 w-8 flex items-center ml-2 justify-center"><i class="fas fa-chevron-right"></i></button>
+        </div>
         <div class="display-work grid gap-2 lg:grid-cols-4 grid-cols-2 w-full">
           <!-- <div>
             <div
@@ -146,7 +151,7 @@
         </div>
       </div>
 
-      <div class="copyright text-center pt-8 text-red-100">
+      <div class="copyright text-center pt-8 text-red-100 text-xs">
         Website developed by MorrisonDevOps Copyright &copy;
         <script type="text/javascript">
           document.write("2022 - " + new Date().getFullYear());
