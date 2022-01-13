@@ -68,25 +68,37 @@ const artArr = [
 ];
 
 const bodyWidth = document.body.clientWidth;
+let pageCur = 1;
+let imgsPerPage;
 
-function imgsPerPage2() {
-  if (bodyWidth > 640 && bodyWidth < 767) {
+// function setImgsPerPage() {
+//   if (bodyWidth < 767) {
+//     console.log("sm", bodyWidth);
+//     imgsPerPage = 2;
+//   }
+//   if (bodyWidth > 768 && bodyWidth < 1023) {
+//     console.log("md", bodyWidth);
+//     imgsPerPage = 4;
+//   } else if (bodyWidth > 1024) {
+//     console.log("lg", bodyWidth);
+//   }
+// }
+
+function setImgsPerPage() {
+  if (bodyWidth <= 610) {
     console.log("sm", bodyWidth);
+    imgsPerPage = 2;
   }
-  if (bodyWidth > 768 && bodyWidth < 1023) {
+  if (bodyWidth >= 610 && bodyWidth <= 1009) {
     console.log("md", bodyWidth);
-  }
-  if (bodyWidth > 1024 && bodyWidth < 1279) {
+    imgsPerPage = 4;
+  } else if (bodyWidth >= 1009) {
     console.log("lg", bodyWidth);
-  } else if (bodyWidth > 1280) {
-    console.log("Bigger than lg", bodyWidth);
+    imgsPerPage = 8;
   }
 }
 
-imgsPerPage2();
-
-let pageCur = 1;
-let imgsPerPage = 8;
+setImgsPerPage();
 
 // function imgsPerPage2() {
 
@@ -158,7 +170,7 @@ function generateHTML(page) {
                 class="artImg z-10 relative before:content-[''] before:h-full before:w-full before:hover:bg-red-800 before:opacity-20 before:absolute before:top-0 cursor-pointer"
                 data-id="${i}" >
             <img
-                class="object-contain max-h-full max-w-full rounded"
+                class=" object-contain max-h-full max-w-full rounded"
                 src="${item}"
                 alt="${alt}"
             />
