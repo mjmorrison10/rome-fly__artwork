@@ -13,7 +13,7 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body class="bg-red-900/75 flex items-center flex-col overflow-x-hidden">
+  <body class="bg-red-900/75 flex items-center flex-col overflow-x-hidden mx-2 md:mx-0">
     <header
       class="bg-red-800 container h-auto flex justify-between items-center p-2"
     >
@@ -84,7 +84,7 @@
       >
         <div class="modal p-6 h-screen cursor-pointer absolute">
           <img
-            class="modalImg object-contain max-h-full rounded max-w-full shadow-lg"
+            class="modalImg object-contain max-h-full rounded max-w-full shadow-lg transition-all duration-1000"
             src="./img/black-grits-comedy2.png"
           />
         </div>
@@ -103,13 +103,13 @@
         <h1 class="font-bold text-5xl my-6">Display of My Work</h1>
         <div class="pagination flex items-center my-2">
           <button
-            class="buttonLeft bg-red-100 font-bold rounded-full h-8 w-8 flex items-center mr-2 justify-center"
+            class="buttonLeft hover:bg-red-200 transition-all duration-300 bg-red-100 font-bold rounded-full h-8 w-8 flex items-center mr-2 justify-center"
           >
             <i class="fas fa-chevron-left"></i>
           </button>
           <p class="currentPage">Page 1</p>
           <button
-            class="buttonRight bg-red-100 font-bold rounded-full h-8 w-8 flex items-center ml-2 justify-center"
+            class="buttonRight hover:bg-red-200 transition-all duration-300 bg-red-100 font-bold rounded-full h-8 w-8 flex items-center ml-2 justify-center"
           >
             <i class="fas fa-chevron-right"></i>
           </button>

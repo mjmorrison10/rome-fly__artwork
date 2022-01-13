@@ -6,6 +6,7 @@ const modalContainer = document.querySelector(".modal-container");
 const modalUnion = [modal, modalContainer];
 const curPage = document.querySelector(".currentPage");
 const pagination = document.querySelector(".pagination");
+const modalImg = modalContainer.querySelector(".modalImg");
 
 // const artObj = {
 //   angeliqueKitchen: "./img/angelique-kitchen.jpg",
@@ -111,19 +112,24 @@ function displayWork(page = 1) {
 
 function generateHTML(page) {
   display.innerHTML = "";
-  console.log('page', page);
+  console.log("page", page);
 
   function firstPage() {
-   return  page == 1 ? page - 1 : (page - 1) * imgsPerPage
+    return page == 1 ? page - 1 : (page - 1) * imgsPerPage;
   }
 
   function secondPage() {
-   return imgsPerPage * page
+    return imgsPerPage * page;
   }
 
   const artMarkup = artArr
     .map((item, i) => {
-      const alt = item.replaceAll('/', ' ').replaceAll('.', '').slice(4, -3).trim().replaceAll('-', ' ')
+      const alt = item
+        .replaceAll("/", " ")
+        .replaceAll(".", "")
+        .slice(4, -3)
+        .trim()
+        .replaceAll("-", " ");
       return `
         <div>
             <div
@@ -141,18 +147,16 @@ function generateHTML(page) {
     .slice(firstPage(), secondPage())
     .join("");
 
-    console.log(firstPage(), secondPage());
-
-
+  console.log(firstPage(), secondPage());
 
   display.insertAdjacentHTML("beforeend", artMarkup);
 }
-
 
 displayWork();
 
 // Display Modal
 display.addEventListener("click", function (e) {
+  modalImg.style.opacity = 0;
   modalContainer.classList.add("hidden");
 
   const clickTarget = e.target.querySelector(".artImg");
@@ -168,12 +172,13 @@ display.addEventListener("click", function (e) {
   const x = e.offsetX;
   const y = e.offsetY;
 
-  const modalImg = modalContainer.querySelector(".modalImg");
   modalImg.src = `${artArr[dataID]}`;
+  modalImg.style.opacity = 100;
 });
 
 modalUnion.forEach((el) => {
   el.addEventListener("click", function () {
     modalContainer.classList.add("hidden");
+    modalImg.style.opacity = 0;
   });
 });
