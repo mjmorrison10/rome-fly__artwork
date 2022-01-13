@@ -920,6 +920,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   .sm\:pt-6 {
     padding-top: 1.5rem;
   }
+
+  .sm\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
 
 @media (min-width: 1024px) {

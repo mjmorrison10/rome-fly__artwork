@@ -123,15 +123,16 @@ function generateHTML(page) {
 
   const artMarkup = artArr
     .map((item, i) => {
+      const alt = item.replaceAll('/', ' ').replaceAll('.', '').slice(4, -3).trim().replaceAll('-', ' ')
       return `
         <div>
             <div
-                class=" artImg z-10 relative before:content-[''] before:h-full before:w-full before:hover:bg-red-800 before:opacity-20 before:absolute before:top-0 cursor-pointer"
+                class="artImg z-10 relative before:content-[''] before:h-full before:w-full before:hover:bg-red-800 before:opacity-20 before:absolute before:top-0 cursor-pointer"
                 data-id="${i}" >
             <img
                 class="object-contain max-h-full max-w-full rounded"
                 src="${item}"
-                alt="Angelique Kitchen Logo"
+                alt="${alt}"
             />
             </div>
          </div>
