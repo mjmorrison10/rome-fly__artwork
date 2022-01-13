@@ -67,8 +67,30 @@ const artArr = [
   "./img/two-women.png",
 ];
 
+const bodyWidth = document.body.clientWidth;
+
+function imgsPerPage2() {
+  if (bodyWidth > 640 && bodyWidth < 767) {
+    console.log("sm", bodyWidth);
+  }
+  if (bodyWidth > 768 && bodyWidth < 1023) {
+    console.log("md", bodyWidth);
+  }
+  if (bodyWidth > 1024 && bodyWidth < 1279) {
+    console.log("lg", bodyWidth);
+  } else if (bodyWidth > 1280) {
+    console.log("Bigger than lg", bodyWidth);
+  }
+}
+
+imgsPerPage2();
+
 let pageCur = 1;
 let imgsPerPage = 8;
+
+// function imgsPerPage2() {
+
+// }
 
 function prevPage() {
   if (pageCur > 1) {
@@ -178,7 +200,9 @@ display.addEventListener("click", function (e) {
 
 modalUnion.forEach((el) => {
   el.addEventListener("click", function () {
-    modalContainer.classList.add("hidden");
+    setTimeout(() => {
+      modalContainer.classList.add("hidden");
+    }, 600);
     modalImg.style.opacity = 0;
   });
 });
