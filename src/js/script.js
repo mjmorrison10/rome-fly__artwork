@@ -120,7 +120,7 @@ function generateHTML(page) {
       return `
         <div>
             <div
-                class="IOsection artImg duration-1000 transition-all border-2 border-red-100/10 hover:border-red-100/75 rounded hover:animate-pulse z-10 relative before:content-[''] before:h-full before:w-full before:hover:bg-red-800 before:opacity-20 before:absolute before:top-0 cursor-pointer"
+                class=" artImg duration-1000 transition-all border-2 border-red-100/10 hover:border-red-100/75 rounded hover:animate-pulse z-10 relative before:content-[''] before:h-full before:w-full before:hover:bg-red-800 before:opacity-20 before:absolute before:top-0 cursor-pointer"
                 data-id="${i}" >
             <img
                 class=" object-contain max-h-full max-w-full rounded"
@@ -173,8 +173,8 @@ modalUnion.forEach((el) => {
 });
 
 const options = {
-  rootMartin: "0px",
-  threshold: 0.25,
+  rootMartin: "100px",
+  threshold: 0.35,
 };
 
 const allSections = document.querySelectorAll(".IOsection");
