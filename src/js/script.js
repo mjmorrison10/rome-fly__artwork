@@ -49,6 +49,41 @@ const artArr = [
   "./img/blkwoman-4.jpg",
 ];
 
+const artArrLow = [
+  "./img/resize/angelique-kitchen.jpg",
+  "./img/resize/black-grits-comedy.jpg",
+  "./img/resize/block-juice.jpg",
+  "./img/resize/dynamic-cuts.jpg",
+  "./img/resize/family.jpg",
+  "./img/resize/jessica-roberts.jpg",
+  "./img/resize/koba-associates.jpg",
+  "./img/resize/life-up-side-down.jpg",
+  "./img/resize/little-boy.jpg",
+  "./img/resize/man-and-woman.jpg",
+  "./img/resize/mitch-tha-barber.jpg",
+  "./img/resize/mr-flip.jpg",
+  "./img/resize/poodie-man.jpg",
+  "./img/resize/royal-red-catering.jpg",
+  "./img/resize/school-of-phlebotomy.jpg",
+  "./img/resize/self-made.jpg",
+  "./img/resize/solo-man.jpg",
+  "./img/resize/sos-massage.jpg",
+  "./img/resize/spartan-4.jpg",
+  "./img/resize/such-a-genius.jpg",
+  "./img/resize/two-women.jpg",
+  "./img/resize/draw-baby-1.jpg",
+  "./img/resize/draw-woman-1.jpg",
+  "./img/resize/koba-associates2.jpg",
+  "./img/resize/man-bbq.jpg",
+  "./img/resize/couple.jpg",
+  "./img/resize/photosensitive-photography.jpg",
+  "./img/resize/chefboy-hollywood.jpg",
+  "./img/resize/blkwoman-1.jpg",
+  "./img/resize/blkwoman-2.jpg",
+  "./img/resize/blkwoman-3.jpg",
+  "./img/resize/blkwoman-4.jpg",
+];
+
 const bodyWidth = document.body.clientWidth;
 let pageCur = 1;
 let imgsPerPage;
@@ -121,7 +156,7 @@ function generateHTML(page) {
     return imgsPerPage * page;
   }
 
-  const artMarkup = artArr
+  const artMarkup = artArrLow
     .map((item, i) => {
       const alt = item
         .replaceAll("/", " ")
