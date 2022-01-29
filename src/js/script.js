@@ -8,12 +8,16 @@ const curPage = document.querySelector(".currentPage");
 const pagination = document.querySelector(".pagination");
 const modalImg = modalContainer.querySelector(".modalImg");
 
+// "./img/spartan-1.png",
+// "./img/spartan-2.png",
+// "./img/spartan-3.png",
+// "./img/black-grits-comedy2.png",
+// "./img/dj.jpg",
+
 const artArr = [
   "./img/angelique-kitchen.jpg",
   "./img/black-grits-comedy.png",
-  "./img/black-grits-comedy2.png",
   "./img/block-juice.png",
-  "./img/dj.jpg",
   "./img/dynamic-cuts.png",
   "./img/family.png",
   "./img/jessica-roberts.png",
@@ -29,12 +33,20 @@ const artArr = [
   "./img/self-made.jpg",
   "./img/solo-man.jpg",
   "./img/sos-massage.jpg",
-  "./img/spartan-1.png",
-  "./img/spartan-2.png",
-  "./img/spartan-3.png",
   "./img/spartan-4.png",
   "./img/such-a-genius.png",
   "./img/two-women.png",
+  "./img/draw-baby-1.jpg",
+  "./img/draw-woman-1.jpg",
+  "./img/koba-associates2.jpg",
+  "./img/man-bbq.jpg",
+  "./img/couple.jpg",
+  "./img/photosensitive-photography.jpg",
+  "./img/chefboy-hollywood.jpg",
+  "./img/blkwoman-1.jpg",
+  "./img/blkwoman-2.jpg",
+  "./img/blkwoman-3.jpg",
+  "./img/blkwoman-4.jpg",
 ];
 
 const bodyWidth = document.body.clientWidth;
