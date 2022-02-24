@@ -112,11 +112,11 @@ let imgsPerPage;
 function setImgsPerPage() {
   if (bodyWidth <= 610) {
     console.log("sm", bodyWidth);
-    imgsPerPage = 2;
+    imgsPerPage = 18;
   }
   if (bodyWidth >= 610 && bodyWidth <= 1009) {
     console.log("md", bodyWidth);
-    imgsPerPage = 4;
+    imgsPerPage = 16;
   } else if (bodyWidth >= 1009) {
     console.log("lg", bodyWidth);
     imgsPerPage = 8;
@@ -188,10 +188,10 @@ function generateHTML(page) {
       return `
         <div>
             <div
-                class=" artImg duration-1000 transition-all border-2 border-red-100/10 hover:border-red-100/75 rounded hover:animate-pulse z-10 relative before:content-[''] before:h-full before:w-full before:hover:bg-red-800 before:opacity-20 before:absolute before:top-0 cursor-pointer"
+                class=" md:h-40 md:w-40 lg:h-60 lg:w-60 h-24 w-24 artImg duration-1000 transition-all border-2 border-red-100/10 hover:border-red-100/75 rounded hover:animate-pulse z-10 relative before:content-[''] before:h-full before:w-full before:hover:bg-red-800 before:opacity-20 before:absolute before:top-0 cursor-pointer"
                 data-id="${i}" >
             <img
-                class=" object-contain max-h-full max-w-full rounded"
+                class=" object-contain h-full w-full rounded"
                 src="${item}"
                 alt="${alt}"
             />
