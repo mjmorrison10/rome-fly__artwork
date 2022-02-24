@@ -47,6 +47,17 @@ const artArr = [
   "./img/blkwoman-2.jpg",
   "./img/blkwoman-3.jpg",
   "./img/blkwoman-4.jpg",
+
+  "./img/meditate-girl.jpg",
+  "./img/the-breakfast.jpg",
+  "./img/man-in-a-jacket.png",
+  "./img/chef-woman.png",
+  "./img/lip-logo.jpg",
+  "./img/lenon-stylez.png",
+  "./img/da-purple-pint.jpg",
+  "./img/majestic-lion.jpg",
+  "./img/lion-logo.jpg",
+  "./img/lion-logo1.jpg",
 ];
 
 const artArrLow = [
@@ -82,6 +93,16 @@ const artArrLow = [
   "./img/resize/blkwoman-2.jpg",
   "./img/resize/blkwoman-3.jpg",
   "./img/resize/blkwoman-4.jpg",
+  "./img/resize/meditate-girl.jpg",
+  "./img/resize/the-breakfast.jpg",
+  "./img/resize/man-in-a-jacket.png",
+  "./img/resize/chef-woman.png",
+  "./img/resize/lip-logo.jpg",
+  "./img/resize/lenon-stylez.png",
+  "./img/resize/da-purple-pint.jpg",
+  "./img/resize/majestic-lion.jpg",
+  "./img/resize/lion-logo.jpg",
+  "./img/resize/lion-logo1.jpg",
 ];
 
 const bodyWidth = document.body.clientWidth;
@@ -220,8 +241,8 @@ modalUnion.forEach((el) => {
 });
 
 const options = {
-  rootMartin: "100px",
-  threshold: 0.35,
+  rootMartin: "200px",
+  threshold: 0.25,
 };
 
 const allSections = document.querySelectorAll(".IOsection");
